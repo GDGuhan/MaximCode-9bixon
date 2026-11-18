@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 5%;
+    --foreground: 213 31% 91%;
+    --card: 222 47% 8%;
+    --card-foreground: 213 31% 91%;
+    --popover: 222 47% 8%;
+    --popover-foreground: 213 31% 91%;
+    --primary: 213 94% 56%;
+    --primary-foreground: 222 47% 5%;
+    --secondary: 222 47% 12%;
+    --secondary-foreground: 213 31% 91%;
+    --muted: 222 47% 12%;
+    --muted-foreground: 215 20% 55%;
+    --accent: 222 47% 15%;
+    --accent-foreground: 213 31% 91%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 213 31% 91%;
+    --border: 222 47% 18%;
+    --input: 222 47% 12%;
+    --ring: 213 94% 56%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * { box-sizing: border-box; }
+  body {
+    @apply bg-brand-950 font-sans;
+    color: #e2e8f0;
+    background-color: #020817;
+    color: #e2e8f0;
+  }
+  html { scroll-behavior: smooth; }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-glass-light backdrop-blur-xl border border-glass-border rounded-2xl shadow-glass;
+  }
+  .glass-card-heavy {
+    @apply bg-glass-heavy backdrop-blur-2xl border border-glass-border rounded-2xl shadow-glass-lg;
+  }
+  .neon-btn {
+    @apply bg-neon-gradient text-white font-semibold px-6 py-3 rounded-xl
+           shadow-neon-blue hover:shadow-neon-blue transition-all duration-300
+           hover:scale-105 active:scale-95;
+  }
+  .neon-text {
+    background: linear-gradient(90deg, #00d4ff, #60a5fa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .gold-text {
+    background: linear-gradient(90deg, #ffd700, #f59e0b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .shimmer-bg {
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.05) 50%, transparent 100%);
+    background-size: 200% 100%;
+    @apply animate-shimmer;
+  }
+  .verified-ring {
+    box-shadow: 0 0 0 4px rgba(0,255,148,0.2), 0 0 30px rgba(0,255,148,0.15);
+  }
+  .section-title {
+    @apply text-3xl md:text-4xl font-display font-bold text-white mb-2;
+  }
+  .input-field {
+    @apply w-full bg-brand-800 border border-brand-600 text-white placeholder-brand-400
+           rounded-xl px-4 py-3 text-base font-medium
+           focus:outline-none focus:border-neon-blue focus:ring-2 focus:ring-neon-blue/20
+           transition-all duration-200;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #0a1628; }
+::-webkit-scrollbar-thumb { background: #1e4d8c; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #2563eb; }
+
+/* QR Code container */
+.qr-wrapper canvas { border-radius: 8px; }
+
+/* Print styles */
+@media print {
+  body { background: white !important; color: black !important; }
+  .no-print { display: none !important; }
+  .print-cert { display: block !important; }
+}
